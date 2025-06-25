@@ -1,6 +1,6 @@
-import { MiddleContainer } from "./layouts/MiddleContainer"
+
 import { PageHeader } from "./layouts/PageHeader"
-import { UpperContainer } from "./layouts/UpperContainer"
+import { UpperContainer } from "./layouts/BodyContainer"
 // import CodeEditor from "./layouts/Editor"
 import { FooterContainer } from "./layouts/Footer"
 import TypingCodeBlock from "./layouts/TypingEditor"
@@ -13,9 +13,6 @@ export default function App() {
       <div className="flex flex-col p-2 mt-20 lg:max-w-5xl m-auto">
         <div>
           <UpperContainer />
-        </div>
-        <div>
-          <MiddleContainer />
         </div>
       </div>
         <div className="flex flex-col mt-40 lg:max-w-5xl m-auto">
