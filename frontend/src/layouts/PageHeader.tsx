@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function PageHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,9 +27,9 @@ export function PageHeader() {
             </div>
           </div>
 
-          {/* Desktop Login */}
+          {/* Desktop Sign In */}
           <div className="hidden lg:block">
-            <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-blue-500">Sign In</a>
+            <Link to="/login" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-blue-500">Sign In</Link>
           </div>
 
           {/* Mobile menu button */}
@@ -71,12 +72,12 @@ export function PageHeader() {
             >
               Practice
             </a>
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-blue-700 hover:bg-gray-200 transition-all duration-300"
             >
               Login
-            </a>
+            </Link>
           </div>
         </div>
       )}
