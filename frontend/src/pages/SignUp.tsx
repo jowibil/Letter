@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { toast } from 'react-hot-toast';
-import { UserRound, Eye, EyeOff } from 'lucide-react'; // ✅ Make sure you're using Lucide icons
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+import { UserRound, Eye, EyeOff } from "lucide-react"; // ✅ Make sure you're using Lucide icons
 
 function SignupPage() {
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({}); // ✅ dummy object to prevent error in conditional styling
   const [showPassword, setShowPassword] = useState(false);
@@ -29,14 +29,14 @@ function SignupPage() {
       return;
     }
 
-    const loadingToast = toast.loading('Sending verification code...');
+    const loadingToast = toast.loading("Sending verification code...");
 
     try {
-      await axios.post('http://localhost:5000/api/auth/send-code', { email });
-      toast.success('Verification code sent!', { id: loadingToast });
-      navigate('/verify', { state: { name, email, password } });
+      await axios.post("http://localhost:5000/api/auth/send-code", { email });
+      toast.success("Verification code sent!", { id: loadingToast });
+      navigate("/verify", { state: { name, email, password } });
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Failed to send code.', {
+      toast.error(err.response?.data?.message || "Failed to send code.", {
         id: loadingToast,
       });
     }
@@ -60,7 +60,10 @@ function SignupPage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Name
             </label>
             <input
@@ -70,8 +73,8 @@ function SignupPage() {
               onChange={handleChange}
               className={`w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm ${
                 errors.name
-                  ? 'border-red-300 focus:ring-red-500'
-                  : 'border-gray-200/50 focus:ring-purple-500'
+                  ? "border-red-300 focus:ring-red-500"
+                  : "border-gray-200/50 focus:ring-purple-500"
               }`}
               placeholder="Enter your name"
             />
@@ -79,7 +82,10 @@ function SignupPage() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Email
             </label>
             <input
@@ -94,18 +100,21 @@ function SignupPage() {
 
           {/* Password */}
           <div className="relative">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Password
             </label>
             <input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               onChange={handleChange}
               className={`w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm ${
                 errors.password
-                  ? 'border-red-300 focus:ring-red-500'
-                  : 'border-gray-200/50 focus:ring-purple-500'
+                  ? "border-red-300 focus:ring-red-500"
+                  : "border-gray-200/50 focus:ring-purple-500"
               }`}
               placeholder="Enter your password"
             />
@@ -114,24 +123,31 @@ function SignupPage() {
               onClick={() => setShowPassword((prev) => !prev)}
               className="absolute right-3 top-[52px] transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
             >
-              {showPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
+              {showPassword ? (
+                <Eye className="w-5 h-5" />
+              ) : (
+                <EyeOff className="w-5 h-5" />
+              )}
             </button>
           </div>
 
           {/* Confirm Password */}
           <div className="relative">
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Confirm Password
             </label>
             <input
-              type={showConfirmPassword ? 'text' : 'password'}
+              type={showConfirmPassword ? "text" : "password"}
               id="confirmPassword"
               name="confirmPassword" // ✅ matched to state key
               onChange={handleChange}
               className={`w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm ${
                 errors.password
-                  ? 'border-red-300 focus:ring-red-500'
-                  : 'border-gray-200/50 focus:ring-purple-500'
+                  ? "border-red-300 focus:ring-red-500"
+                  : "border-gray-200/50 focus:ring-purple-500"
               }`}
               placeholder="Confirm password"
             />
@@ -140,7 +156,11 @@ function SignupPage() {
               onClick={() => setShowConfirmPassword((prev) => !prev)}
               className="absolute right-3 top-[52px] transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
             >
-              {showConfirmPassword ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}
+              {showConfirmPassword ? (
+                <Eye className="w-5 h-5" />
+              ) : (
+                <EyeOff className="w-5 h-5" />
+              )}
             </button>
           </div>
 
@@ -157,7 +177,7 @@ function SignupPage() {
             Have an account?
             <span
               className="text-pink-500 hover:text-pink-600 font-medium transition-colors duration-200 ml-1 cursor-pointer"
-              onClick={() => navigate('/login')}
+              onClick={() => navigate("/login")}
             >
               Sign In
             </span>
