@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "title":"Longest Consecutive Sequence",
+        "difficulty":"intermediate",
+        "description":"Given an Unsorted array of integers find  the length of the longest sequence of consecutive numbers. It should run in O(n) time complexity, and no sorting allowed",
+        "given":[{"input":"[4,1,2,7,3]","target": 8, "output":[7,1]}]
+    },
+    {
+        "id":2,
+        "title":"Group anagrams",
+        "difficulty":"easy",
+        "description":"Given a list  of strings, group the anagrams  together",
+        "given":[{"input":"[stop, care, pots, bats, acre, post ]", "output":"[stop, pots, post, care, acre, bats]"}]
+    }
+]
