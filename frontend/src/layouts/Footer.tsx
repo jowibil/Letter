@@ -14,18 +14,7 @@ export function FooterContainer() {
                             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SyntaxRush</span>
                         </a>
                     </div>
-                    <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-                        <div>
-                            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-                            <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                                <li className="mb-4">
-                                    <a href="https://ui.shadcn.com/" className="hover:underline">ShadCN</a>
-                                </li>
-                                <li>
-                                    <a href="https://tailwindcss.com/" className="hover:underline">Tailwind CSS</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div className="grid grid-cols-2">
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">

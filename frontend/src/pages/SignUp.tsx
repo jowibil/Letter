@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { UserRound, Eye, EyeOff } from "lucide-react"; // ✅ Make sure you're using Lucide icons
+import { UserRound, Eye, EyeOff } from "lucide-react";
 
 function SignupPage() {
   const [form, setForm] = useState({
@@ -11,7 +11,7 @@ function SignupPage() {
     password: "",
     confirmPassword: "",
   });
-  const [errors, setErrors] = useState({}); // ✅ dummy object to prevent error in conditional styling
+  const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -35,6 +35,8 @@ function SignupPage() {
       await axios.post("http://localhost:5000/api/auth/send-code", { email });
       toast.success("Verification code sent!", { id: loadingToast });
       navigate("/verify", { state: { name, email, password } });
+      setForm({ name: " ", email: " ", password: " ", confirmPassword: " " });
+
     } catch (err) {
       toast.error(err.response?.data?.message || "Failed to send code.", {
         id: loadingToast,
@@ -111,8 +113,10 @@ function SignupPage() {
               id="password"
               name="password"
               onChange={handleChange}
-              className={`w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm ${
-                errors.password
+              onFocus={() => setShowPassword(true)}
+              onBlur={() => setShowPassword(false)}
+              className={`w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm 
+                ${errors.password
                   ? "border-red-300 focus:ring-red-500"
                   : "border-gray-200/50 focus:ring-purple-500"
               }`}
@@ -144,6 +148,8 @@ function SignupPage() {
               id="confirmPassword"
               name="confirmPassword" // ✅ matched to state key
               onChange={handleChange}
+              onFocus={() => setShowConfirmPassword(true)}
+              onBlur={() => setShowConfirmPassword(false)}
               className={`w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm ${
                 errors.password
                   ? "border-red-300 focus:ring-red-500"
@@ -188,4 +194,4 @@ function SignupPage() {
   );
 }
 
-export default SignupPage; // ✅ correct export
+export default SignupPage;

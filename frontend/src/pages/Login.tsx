@@ -90,6 +90,8 @@ function LoginPage() {
               name="password"
               value={form.password}
               onChange={handleChange}
+              onFocus={() => setShowPassword(true)}
+              onBlur={() => setShowPassword(false)}
               className="w-full px-4 py-3 bg-gray-100/50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent backdrop-blur-sm transition-all duration-200 text-gray-800 placeholder:text-sm"
               placeholder="Enter your password"
               required
