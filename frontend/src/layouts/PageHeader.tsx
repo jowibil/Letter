@@ -25,15 +25,15 @@ export function PageHeader() {
           {/* Desktop Menu */}
           <div className="hidden lg:block lg:ml-10">
             <div className="flex space-x-4">
-              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-blue-500 transition-all duration-300">Explore</a>
-              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-blue-500 transition-all duration-300">Problems</a>
-              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-blue-500 transition-all duration-300">Practice</a>
+              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00] transition-all duration-300">Explore</a>
+              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00] transition-all duration-300">Problems</a>
+              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00] transition-all duration-300">Practice</a>
             </div>
           </div>
 
           {/* Desktop Sign In */}
           <div className="hidden lg:block lg:ml-auto">
-            <Link to="/login" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-blue-500">Sign In</Link>
+            <Link to="/login" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00]">Sign In</Link>
           </div>
 
           {/* Mobile menu button */}

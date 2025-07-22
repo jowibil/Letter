@@ -14,7 +14,7 @@ export function UpperContainer() {
                     <h3 className="font-[MuseoModerno] font-bold text-3xl lg:text-4xl">
                         Learn to Code
                     </h3>
-                    <p className="p-2">
+                    <p className="font-[Inter] p-2">
                         Jump into the world of programming with SyntaxRush — where coding
                         meets competition! Whether you're a beginner or a seasoned
                         developer, our platform gives you the tools to master languages like
@@ -35,7 +35,7 @@ export function UpperContainer() {
                     <h3 className="font-[MuseoModerno] font-medium text-center md:text-right text-2xl lg:text-4xl">
                         Add Fun in Learning
                     </h3>
-                    <p className="p-2 text-justify md:text-right">
+                    <p className="font-[Inter] p-2 text-justify md:text-right">
                         Who said coding has to be boring? At SyntaxRush, we’ve gamified
                         learning with real-time coding battles, leaderboard rankings, and
                         seasonal tournaments. Compete with friends or challengers worldwide

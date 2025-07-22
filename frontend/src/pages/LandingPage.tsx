@@ -30,7 +30,7 @@ export default function LandingPage() {
                     <h1 className="font-bold p-2 text-3xl lg:text-4xl">Code</h1>
                     <RotatingText
                         texts={['Playground', 'Rush', 'Fun', 'Tournaments!']}
-                        mainClassName="px-2 md:px-3 py-2 md:py-3 bg-[#8B0000] text-white text-2xl md:text-3xl font-bold overflow-hidden justify-center rounded-lg"
+                        mainClassName="px-2 md:px-3 py-2 md:py-1.2 bg-[#8B0000] text-white text-2xl md:text-3xl font-[MuseoModerno] font-bold overflow-hidden justify-center rounded-lg"
                         staggerFrom={"last"}
                         initial={{ y: "100%" }}
                         animate={{ y: 0 }}
@@ -41,11 +41,11 @@ export default function LandingPage() {
                         rotationInterval={2000}
                     />
                 </div>
-                <p className="text-center p-4">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos nihil eos nemo dolorem quo voluptatem soluta voluptatibus
-                    <br /> ad placeat est iste enim, natus ducimus, minima sit, ex vel accusamus eius?
+                <p className="font-[Inter] text-center p-4">
+                    Learn alot from practicing and beating the records from other people across the world,
+                    <br /> Do you have what it takes? Code along now!
                 </p>
-                <div className="flex items-center justify-center p-4 mt-8">
+                <div className="flex items-center justify-center p-4 mt-4">
                     <TypingCodeCarousel />
                 </div>
             </div>
