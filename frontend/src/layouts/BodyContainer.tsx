@@ -20,12 +20,17 @@ export function UpperContainer() {
                         developer, our platform gives you the tools to master languages like
                         Python, JavaScript, C++, and more.
                     </p>
-                    <div className="p-2 m-2">
-                        <Link
-                            to="/signup"
-                            className="rounded-2xl gap-1.5 px-3 py-2.5 has-[>svg]:px-2.5 bg-[#FF4C00] text-white hover:bg-[#8B0000]">
-                            {"Create Account \u003E"}
-                        </Link>
+                    <div className="p-2">
+                        <div className="relative inline-block group overflow-hidden rounded-full z-10">
+                            <div className="absolute inset-0 bg-[#FF4C00] rounded-full z-[-2]" />
+                            <div className="absolute inset-0 bg-[#8B0000] w-0 group-hover:w-full transition-all duration-300 rounded-full z-[-1]" />
+                            <Link
+                                to="/signup"
+                                className="relative inline-block px-6 py-3 text-white uppercase text-sm tracking-wider font-semibold z-10 transition-all duration-300"
+                            >
+                                Create Account &gt;
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,16 +48,8 @@ export function UpperContainer() {
                     </p>
                     <Link
                         to="/explore"
-                        className="ml-auto text-blue-500 hover:text-blue-700 hover:underline"
-                    >
-                        <TrueFocus
-                            sentence="Start Exploring>"
-                            manualMode={true}
-                            blurAmount={5}
-                            borderColor="red"
-                            animationDuration={0.3}
-                            pauseBetweenAnimations={1}
-                        />
+                        className="font-[Inter] text-blue-700 hover:text-blue-500 hover:font-semibold hover:underline ml-auto">
+                        {"Start Exploring \u003E"}
                     </Link>
                 </div>
                 <div className="flex justify-center p-2">

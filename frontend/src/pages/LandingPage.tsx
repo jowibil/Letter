@@ -45,7 +45,7 @@ export default function LandingPage() {
                     Learn alot from practicing and beating the records from other people across the world,
                     <br /> Do you have what it takes? Code along now!
                 </p>
-                <div className="flex items-center justify-center p-4 mt-4">
+                <div className="flex justify-center p-4 mt-4">
                     <TypingCodeCarousel />
                 </div>
             </div>

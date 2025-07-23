@@ -54,7 +54,7 @@ const TypingCodeCarousel = () => {
     }, [currentIndex]);
 
     return (
-        <div className="bg-[#1e1e1e] text-white font-mono rounded-lg overflow-hidden shadow-lg border border-gray-700 w-2xs h-96 md:w-2xl lg:w-4xl">
+        <div className="w-full bg-[#1e1e1e] text-white font-mono rounded-lg overflow-hidden shadow-lg border border-gray-700 h-96">
             {/* Fake editor header */}
             <div className="bg-gray-800 px-4 py-2 flex items-center space-x-2">
                 <span className="w-3 h-3 bg-red-500 rounded-full"></span>

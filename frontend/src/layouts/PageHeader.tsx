@@ -40,7 +40,7 @@ export function PageHeader() {
           <div className="lg:hidden ml-auto">
             <button
               onClick={toggleMobileMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-blue-700 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 hover:scale-105"
+              className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-[#FF4C00] hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#8B0000] hover:scale-105"
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
@@ -60,25 +60,25 @@ export function PageHeader() {
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
             <a
               href="#"
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-blue-700 hover:bg-gray-200 transition-all duration-300"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Explore
             </a>
             <a
               href="#"
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-blue-700 hover:bg-gray-200 transition-all duration-300"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Problems
             </a>
             <a
               href="#"
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-blue-700 hover:bg-gray-200 transition-all duration-300"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Practice
             </a>
             <Link
               to="/login"
-              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-blue-700 hover:bg-gray-200 transition-all duration-300"
+              className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Login
             </Link>
