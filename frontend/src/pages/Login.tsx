@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { Eye, EyeOff, KeyRound } from 'lucide-react';
+import { Eye, EyeOff, KeyRound, House } from 'lucide-react';
 
 interface LoginData{
   email: string;
@@ -99,6 +99,8 @@ function LoginPage() {
 
       {/* Login Card */}
       <div className="bg-white/25 backdrop-blur-xl border border-white/30 rounded-3xl p-10 w-full max-w-md shadow-2xl relative z-10">
+        <Link to="/" className='block w-fit'><House className="mb-3" size={23} /></Link>
+
         <KeyRound className="m-auto" size={30}/>
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">Login</h1>
         <p className="text-gray-600 text-center mb-8">Welcome Back! Please Login To Your Account.</p>

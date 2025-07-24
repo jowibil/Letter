@@ -1,8 +1,8 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { UserRound, Eye, EyeOff } from "lucide-react";
+import { UserRound, Eye, EyeOff, House } from "lucide-react";
 
 interface SignUpData{
   name: string;
@@ -103,6 +103,7 @@ function SignupPage() {
       setIsLoading(false);
     }
   };
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-100 flex items-center p-1.5 justify-center relative overflow-hidden">
@@ -113,6 +114,7 @@ function SignupPage() {
 
       {/* Signup Form */}
       <div className="bg-white/25 backdrop-blur-xl border border-white/30 rounded-3xl p-10 w-full max-w-md shadow-2xl relative z-10">
+        <Link to="/" className="block w-fit"><House className="mb-3" size={23}/></Link>
         <UserRound className="m-auto mb-2" size={30} />
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-2">
           Create Account
