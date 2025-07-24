@@ -48,8 +48,12 @@ export function UpperContainer() {
                     </p>
                     <Link
                         to="/explore"
-                        className="font-[Inter] text-blue-700 hover:text-blue-500 hover:font-semibold hover:underline ml-auto">
-                        {"Start Exploring \u003E"}
+                        className="font-[Inter] text-blue-700 hover:text-blue-500 hover:font-semibold ml-auto relative bg-gradient-to-r from-transparent to-transparent bg-[length:0%_3px] bg-no-repeat bg-bottom hover:bg-[length:100%_3px] transition-all duration-500 ease-in-out"
+                        style={{
+                            backgroundImage: 'linear-gradient(transparent, transparent), linear-gradient(#FF4C00, #8B0000)'
+                        }}
+                    >
+                        {"Start Exploring >"}
                     </Link>
                 </div>
                 <div className="flex justify-center p-2">

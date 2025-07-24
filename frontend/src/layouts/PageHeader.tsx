@@ -80,7 +80,7 @@ export function PageHeader() {
               to="/login"
               className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
-              Login
+              Sign In
             </Link>
           </div>
         </div>
