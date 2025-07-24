@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import graphic from "../assets/Graphic1.png"
 import graphic2 from "../assets/Graohic2.png"
-import TrueFocus from "@/blocks/TextAnimations/TrueFocus/TrueFocus";
 
 export function UpperContainer() {
     return (
