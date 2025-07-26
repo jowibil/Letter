@@ -1,7 +1,7 @@
 
 import logo from '../assets/SyntaxRushIcon.png'
 
-export function FooterContainer() {
+function FooterContainer() {
     return (
 
 
@@ -81,3 +81,4 @@ export function FooterContainer() {
 
     )
 }
+export default FooterContainer;

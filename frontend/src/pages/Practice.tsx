@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Editor } from "@monaco-editor/react";
 import axios from "axios";
+import PageHeader from "@/layouts/PageHeader";
 
 // Encode string to Base64
 const toBase64 = (str) => {
@@ -43,7 +44,7 @@ print("Hello,", name)`,
   },
 ];
 
-export default function CodeRunner() {
+function CodeRunner() {
   const [languageId, setLanguageId] = useState(93); // ✅ JavaScript is now default
   const [code, setCode] = useState(
     languages.find((lang) => lang.id === 93).boilerplate
@@ -109,61 +110,67 @@ export default function CodeRunner() {
   };
 
   return (
-    <div style={{ padding: "1rem", fontFamily: "Arial" }}>
-      <h1>Practice</h1>
+    <div className="max-h-screen max-w-full">
+      <PageHeader />
 
-      <label>
-        Language: &nbsp;
-        <select
-          onChange={(e) => setLanguageId(Number(e.target.value))}
-          value={languageId}
+      <div style={{ padding: "1rem", fontFamily: "Arial" }}>
+        <h1>Practice</h1>
+
+        <label>
+          Language: &nbsp;
+          <select
+            onChange={(e) => setLanguageId(Number(e.target.value))}
+            value={languageId}
+          >
+            {languages.map((lang) => (
+              <option key={lang.id} value={lang.id}>
+                {lang.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <Editor
+          height="300px"
+          defaultLanguage={selectedLanguage.monaco}
+          language={selectedLanguage.monaco}
+          value={code}
+          onChange={(value) => setCode(value || "")}
+          theme="vs-dark"
+          options={{ fontSize: 14 }}
+        />
+
+        {/* ✅ User input box for stdin */}
+
+
+        <button
+          onClick={runCode}
+          disabled={isRunning}
+          style={{
+            marginTop: "10px",
+            padding: "8px 16px",
+            fontSize: "16px",
+            backgroundColor: "black",
+            color: "white",
+            cursor: isRunning ? "not-allowed" : "pointer",
+          }}
         >
-          {languages.map((lang) => (
-            <option key={lang.id} value={lang.id}>
-              {lang.name}
-            </option>
-          ))}
-        </select>
-      </label>
+          {isRunning ? "Running..." : "Run"}
+        </button>
 
-      <Editor
-        height="300px"
-        defaultLanguage={selectedLanguage.monaco}
-        language={selectedLanguage.monaco}
-        value={code}
-        onChange={(value) => setCode(value || "")}
-        theme="vs-dark"
-        options={{ fontSize: 14 }}
-      />
-
-      {/* ✅ User input box for stdin */}
-
-
-      <button
-        onClick={runCode}
-        disabled={isRunning}
-        style={{
-          marginTop: "10px",
-          padding: "8px 16px",
-          fontSize: "16px",
-          backgroundColor: "black",
-          color: "white",
-          cursor: isRunning ? "not-allowed" : "pointer",
-        }}
-      >
-        {isRunning ? "Running..." : "Run"}
-      </button>
-
-      <pre
-        style={{
-          background: "#f0f0f0",
-          padding: "1rem",
-          marginTop: "1rem",
-          whiteSpace: "pre-wrap",
-        }}
-      >
-        {output}
-      </pre>
+        <pre
+          style={{
+            background: "#f0f0f0",
+            padding: "1rem",
+            marginTop: "1rem",
+            whiteSpace: "pre-wrap",
+          }}
+        >
+          {output}
+        </pre>
+      </div>
     </div>
   );
 }
+
+export default CodeRunner;

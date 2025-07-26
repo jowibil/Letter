@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import graphic from "../assets/Graphic1.png"
 import graphic2 from "../assets/Graohic2.png"
 
-export function UpperContainer() {
+function UpperContainer() {
     return (
         <div>
             <div className="grid grid-cols-1 gap-4 p-2 md:grid-cols-2">
@@ -62,3 +62,4 @@ export function UpperContainer() {
         </div>
     );
 }
+export default UpperContainer;

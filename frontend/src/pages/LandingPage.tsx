@@ -1,12 +1,12 @@
-import { PageHeader } from "../layouts/PageHeader";
-import { UpperContainer } from "../layouts/BodyContainer";
-import { FooterContainer } from "../layouts/Footer";
+import PageHeader from "@/layouts/PageHeader";
+import UpperContainer from "@/layouts/BodyContainer";
+import FooterContainer from "@/layouts/Footer";
 import syntax from '../assets/BlackAndWhiteIcon.png'
 import TypingCodeCarousel from "@/layouts/TypingEditor";
 import RotatingText from '../blocks/TextAnimations/RotatingText/RotatingText'
 import VantaNet from "@/components/VantaNet/VantaNet";
 
-export default function LandingPage() {
+function LandingPage() {
     return (
         <div className="max-h-screen max-w-full">
             <PageHeader />
@@ -56,3 +56,4 @@ export default function LandingPage() {
         
     );
 }
+export default LandingPage;

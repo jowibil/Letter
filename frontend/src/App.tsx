@@ -7,6 +7,8 @@ import { Toaster } from "react-hot-toast"; // ✅ Import Toaster
 import ProtectedRoute from "./components/ui/protectedRoute";
 import Dashboard from "./pages/Dashboard";
 import CodeRunner from "./pages/Practice";
+import Explore from "./pages/Explore";
+import Problems from "./pages/Problems";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/verify" element={<OTPPage />} />
         <Route path="/practice" element={<CodeRunner />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/problems" element={<Problems />} />
         <Route
           path="/dashboard"
           element={

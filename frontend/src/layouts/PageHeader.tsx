@@ -2,10 +2,19 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/SyntaxRushIcon.png';
+import { NavLink } from 'react-router-dom';
 
 
-export function PageHeader() {
+function PageHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const activeStyle: React.CSSProperties = {
+    backgroundImage: "linear-gradient(transparent, transparent), linear-gradient(#FF4C00, #8B0000)",
+    backgroundSize: "100% 3px",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom",
+    color: "#FF4C00",
+  };
+
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -13,23 +22,59 @@ export function PageHeader() {
 
   return (
     <nav className="bg-white border-b-2 z-[1000] relative">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-18 items-center ">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#" className=''>
+            <Link to="/" className=''>
               <img src={logo} alt="" className='h-auto w-10'/>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden lg:block lg:ml-10">
             <div className="flex space-x-4">
-              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00] transition-all duration-300">Explore</a>
-              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00] transition-all duration-300">Problems</a>
-              <a href="#" className="rounded-md px-3 py-2 text-black font-medium hover:bg-gray-200 hover:text-[#FF4C00] transition-all duration-300">Practice</a>
+              <NavLink
+                to="/explore"
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-2 font-medium transition-all duration-500 ${isActive
+                    ? "ml-auto relative underline-animate"
+                    : "text-black hover:bg-gray-200 hover:text-[#FF4C00]"
+                  }`
+                }
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Explore
+              </NavLink>
+
+              <NavLink
+                to="/problems"
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-2 font-medium transition-all duration-500 ${isActive
+                    ? "ml-auto relative underline-animate"
+                    : "text-black hover:bg-gray-200 hover:text-[#FF4C00]"
+                  }`
+                }
+                style={({isActive}) => (isActive ? activeStyle : undefined)}
+              >
+                Problems
+              </NavLink>
+
+              <NavLink
+                to="/practice"
+                className={({ isActive }) =>
+                  `rounded-md px-3 py-2 font-medium transition-all duration-500 ${isActive
+                    ? "ml-auto relative underline-animate"
+                    : "text-black hover:bg-gray-200 hover:text-[#FF4C00]"
+                  }`
+                }
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+              >
+                Practice
+              </NavLink>
             </div>
           </div>
+
 
           {/* Desktop Sign In */}
           <div className="hidden lg:block lg:ml-auto">
@@ -57,25 +102,25 @@ export function PageHeader() {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="lg:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t">
-            <a
-              href="#"
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t absolute w-full">
+            <Link
+              to="/explore"
               className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Explore
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/problems"
               className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Problems
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/practice"
               className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
             >
               Practice
-            </a>
+            </Link>
             <Link
               to="/login"
               className="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-[#FF4C00] hover:bg-gray-200 transition-all duration-300"
@@ -88,3 +133,4 @@ export function PageHeader() {
     </nav>
   );
 }
+export default PageHeader;
