@@ -159,6 +159,7 @@ function LoginPage() {
           <div className="flex items-center justify-between">
             <label className="flex items-center cursor-pointer">
               <input
+                id='rememberMe'
                 type="checkbox"
                 name="rememberMe"
                 checked={form.rememberMe}
