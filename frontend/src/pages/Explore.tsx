@@ -5,13 +5,17 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
 } from "@/components/ui/carousel"
 import avatar from "../assets/Graohic2.png"
 import FooterContainer from "@/layouts/Footer";
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
-import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { IconRiPlayFill } from "@/components/ui/play-fill";
+import AnimatedPodium from "@/components/ui/podium";
+
 
 
 const ExplorePage = () => {
@@ -42,8 +46,8 @@ const ExplorePage = () => {
         { name: "JSniper", avatar: avatar, score: 3000 },
         { name: "LoopQueen", avatar: avatar, score: 2860 },
         { name: "CodeGods", avatar: avatar, score: 2500 },
-        { name: "JustYourAverageJoe", avatar: avatar, score: 1900 },
-        { name: "MotoVlogger", avatar: avatar, score: 1700 },
+        { name: "AverageJoe", avatar: avatar, score: 1900 },
+        { name: "PureSkillz", avatar: avatar, score: 1700 },
     ]);
 
     return (
@@ -52,41 +56,51 @@ const ExplorePage = () => {
             <PageHeader />
             <div className="max-w-6xl m-auto mt-4">
                 <h1 className="font-medium text-gray-500 text-[1.2rem]">Welcome to</h1>
-                <h1 className="font-[MuseoModerno] text-black text-[2.5rem]">SyntaxRush Explore</h1>
+                <h1 className="font-[MuseoModerno] text-black text-[2.5rem]">
+                    <span className="text-[#1C1C1C] font-[MuseoModerno]">Syntax</span>
+                    <span className="text-red-600 font-[MuseoModerno]">Rush</span> Explore</h1>
             </div>
             <div className="p-4">
                 <section className="p-4 max-w-[90rem] m-auto">
                     <h1 className="font-bold text-black text-3xl p-2">Popular Challenges</h1>
-                    <Carousel
-                        opts={{
-                            align: "start",
-                        }}
-                        className="w-full mx-auto"
-                    >
-                        <CarouselContent className="-ml-2">
-                            {challenges.map((c, i) => (
-                                <CarouselItem key={i} className="md:basis-1/3 lg:basis-1/5 pl-2">
-                                    <div className="p-1.5">
-                                        <Card className="shadow hover:shadow-[#FF4C00] to-[#8B0000] hover:shadow-lg transition-all">
-                                            <CardContent className="flex flex-col justify-between p-4 h-full">
-                                                <div>
-                                                    <h3 className="font-semibold text-sm mb-2 line-clamp-2">{c.title}</h3>
-                                                    <div className="text-xs text-gray-600 mb-3">Plays: {c.plays}</div>
-                                                </div>
-                                                <div className="flex flex-wrap gap-1">
-                                                    {c.tags.map((tag, tagIndex) => (
-                                                        <span key={tagIndex} className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
-                                                            {tag}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    </div>
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                    </Carousel>
+                    <div className="relative group">
+                        <Carousel
+                            opts={{
+                                align: "start",
+                            }}
+                            className="w-full mx-auto select-none cursor-grab"
+                        >
+                            <CarouselContent className="-ml-2">
+                                {challenges.map((c, i) => (
+                                    <CarouselItem key={i} className="md:basis-1/3 lg:basis-1/5 pl-2">
+                                        <div className="p-1.5">
+                                            <Card className="hover:shadow-gray-400 hover:shadow-md transition-all">
+                                                <CardContent className="flex flex-col justify-between p-4 h-full">
+                                                    <div className="relative">
+                                                        <h3 className="font-semibold text-sm mb-2 line-clamp-2">{c.title}</h3>
+                                                        <div className="text-xs text-gray-600 mb-3">Plays: {c.plays}</div>
+                                                        <button className="absolute cursor-pointer left-1/2 -translate-x-1/2 top-9 border-4 border-gray-200 bg-white rounded-full p-2 shadow hover:shadow-lg hover:shadow-gray-500 transition-colors duration-300 hover:text-green-500 text-gray-500">
+                                                            <IconRiPlayFill className="w-5 h-5" />
+                                                        </button>
+                                                    </div>
+                                                    <hr className="border-gray-300"/>
+                                                    <div className="flex flex-wrap gap-1 mt-6">
+                                                        {c.tags.map((tag, tagIndex) => (
+                                                            <span key={tagIndex} className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full">
+                                                                {tag}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" variant={"ghost"} />
+                            <CarouselNext className="opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        </Carousel>
+                    </div>
                 </section>
 
 
@@ -120,7 +134,7 @@ const ExplorePage = () => {
                         <h2 className="font-['Bebas_Neue'] font-medium text-3xl tracking-wide mb-2 p-2">Speedboard Highlights</h2>
 
                         <ScrollArea className="h-[33rem] w-full rounded-md">
-                            <div className="space-y-3 p-2">
+                            <div className="p-2">
                                 {leaders.map((l, i) => (
                                     <div key={i}>
                                         <div className="flex sm:flex-col md:flex-row items-center gap-4 p-3 border border-gray-300 rounded-md shadow-gray-400 hover:shadow-lg transition-all">
@@ -130,7 +144,7 @@ const ExplorePage = () => {
                                                 <p className="text-sm text-gray-500">Time: {l.time}</p>
                                             </div>
                                             <button
-                                                className="rounded-lg px-2 py-1.5 overflow-hidden relative group cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                                                className="rounded-lg px-2 py-1.5 overflow-hidden relative group disabled:opacity-50 disabled:cursor-not-allowed"
                                             >
                                                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF4C00] to-[#8B0000] rounded-lg"></div>
                                                 <div className="absolute inset-[2px] bg-slate-50 rounded-md transition-colors duration-300 group-hover:bg-transparent"></div>
@@ -149,27 +163,17 @@ const ExplorePage = () => {
                 </div>
 
                 <div className="mt-[5rem] mb-[3rem] p-4 max-w-6xl mx-auto ">
-                    <h2 className="font-['Bebas_Neue'] font-bold text-4xl p-2">Weekly Champions List</h2>
-                    <p className="font-[Inter] text-[1.125rem] p-2">Showcase your skills and dominate the server, be one of the weekly champions!</p>
+                    <h2 className="font-['Bebas_Neue'] font-bold text-4xl mb-4">Weekly Champions List</h2>
+                    <p className="font-[Raleway] text-[1.125rem] p-2">Showcase your skills and dominate the server, be one of the weekly champions!</p>
                     <h2 className="text-[1.25rem] font-medium p-2">🎯 This weeks — TOP 5</h2>
-                    <div className="">
-                        <div className="flex flex-wrap gap-2 justify-center p-4">
-                            {weeklyChamps.map((champ, i) => (
-                                <div key={i} className="p-4 border border-gray-199 rounded-lg w-[200px] text-center shadow hover:shadow-lg transition-all">
-                                    <img src={champ.avatar} alt={champ.name} className="w-16 h-16 rounded-full mx-auto" />
-                                    <h4 className="font-semibold mt-2">{champ.name}</h4>
-                                    <p className="text-sm text-gray-600">Score: {champ.score}</p>
-                                    <div className="mt-1 text-yellow-500">⭐ Weekly Champ</div>
-                                </div>
-                            ))}
-                        </div>
-
+                    <div className="mb-[15rem] mt-[4rem]">
+                        <AnimatedPodium weeklyChamps={weeklyChamps}/>
                     </div>
                 </div>
                 <div className="mt-[5rem] p-4 max-w-6xl mx-auto">
                     <div className="flex justify-between items-center">
                         <h2 className="font-['Bebas_Neue'] font-bold text-4xl mb-4">Custom Challenges by Community</h2>
-                        <Link to={""} className="text-red-600 hover:underline hover:font-medium">{`More >>`}</Link>
+                        <button type="button" className="text-blue-500 font-medium text-sm bg-white px-2.5 py-0.5 rounded-lg border border-gray-300 shadow-lg shadow-gray-400 transition-all hover:bg-gray-200 hover:shadow-none cursor-pointer" >More</button>
                     </div>
                     <p className="font-[Raleway] text-[1.125rem] p-2 text-wrap max-w-2xl">Browse through custom challenges made by the community! Feel free to try and experience the creativity of other people.</p>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 p-2">
