@@ -11,7 +11,7 @@ import FooterContainer from "@/layouts/Footer";
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Link } from "react-router-dom";
-// import PixelCard from "@/blocks/Components/PixelCard/PixelCard";
+import SEO from "@/components/SEO";
 
 
 const ExplorePage = () => {
@@ -48,6 +48,7 @@ const ExplorePage = () => {
 
     return (
         <div className="max-h-screen max-w-full">
+            <SEO title="Explore | SyntaxRush" description="Explore the exciting things SyntaxRush has kept for you!" />
             <PageHeader />
             <div className="max-w-6xl m-auto mt-4">
                 <h1 className="font-medium text-gray-500 text-[1.2rem]">Welcome to</h1>

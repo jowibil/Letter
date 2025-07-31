@@ -5,10 +5,12 @@ import syntax from '../assets/BlackAndWhiteIcon.png'
 import TypingCodeCarousel from "@/layouts/TypingEditor";
 import RotatingText from '../blocks/TextAnimations/RotatingText/RotatingText'
 import VantaNet from "@/components/VantaNet/VantaNet";
+import SEO from "@/components/SEO";
 
 function LandingPage() {
     return (
         <div className="max-h-screen max-w-full">
+            <SEO title="SyntaxRush" description="Enhance your skills while playing here in SyntaxRush. Join Now!"/>
             <PageHeader />
             <div className="relative">
                 <VantaNet />

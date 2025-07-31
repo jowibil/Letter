@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { UserRound, Eye, EyeOff, House } from "lucide-react";
+import SEO from "@/components/SEO";
 
 interface SignUpData{
   name: string;
@@ -107,6 +108,7 @@ function SignupPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-100 flex items-center p-1.5 justify-center relative overflow-hidden">
+      <SEO title="Create Account | SyntaxRush" description="Create your account in SyntaxRush." />
       {/* Background circles */}
       <div className="absolute top-1/4 right-1/4 w-48 h-48 bg-gradient-to-br from-purple-400 to-indigo-600 rounded-full opacity-60 blur-sm animate-pulse"></div>
       <div className="absolute bottom-1/4 left-1/4 w-36 h-36 bg-gradient-to-br from-pink-400 to-red-500 rounded-full opacity-60 blur-sm animate-bounce"></div>
